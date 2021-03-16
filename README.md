@@ -7,6 +7,7 @@ Using a quiz of characteristics, the user can find out which Marvel Avengers cha
 ## User Story
 
 * As a fan, I want to know which Marvel Avengers character I am the most like so I can see what movies I would like to see.
+* Will be using Rotten Tomatoes API, as well Marvel API.
 
 ## Wireframe
 
