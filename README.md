@@ -11,8 +11,7 @@ Using a quiz of characteristics, the user can find out which Marvel Avengers cha
 
 ## Wireframe
 
-![Screenshot 1](https://github.com/leviathan902/Project-1/blob/main/assets/images/wireframe1.jpg?raw=true)
-![Screenshot 1](https://github.com/leviathan902/Project-1/blob/main/assets/images/wireframe2.jpg?raw=true)
+![Screenshot 1](https://github.com/leviathan902/Project-1/blob/main/assets/images/basic-wireframe-v1.png?raw=true)
 
 ## User Flow Diagram
 
