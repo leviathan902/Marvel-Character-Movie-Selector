@@ -2,6 +2,7 @@
 var characters = $('#characters');
 var charaInput = $('#chara');
 var submitBtn = $('#submitBtn');
+var charaInfoEl = $('#characterInfo');
 console.log(characters);
 
 // Get value from drop-down list
@@ -28,27 +29,32 @@ function searchApi(charaChoice) {
   
         return response.json();
       })
-      .then(function (locRes) {
-        // write query to page so user knows what they are viewing
-        console.log(locRes.data.results[0]);
-        // resultTextEl.textContent = locRes.search.query;
-  
-        // console.log(locRes);
-  
-        // if (!locRes.results.length) {
-        //   console.log('No results found!');
-        //   resultContentEl.innerHTML = '<h3>No results found, search again!</h3>';
-        // } else {
-        //   resultContentEl.textContent = '';
-        //   for (var i = 0; i < locRes.results.length; i++) {
-        //     printResults(locRes.results[i]);
-        //   }
-        // }
-      })
+      .then(displayInfo)
       .catch(function (error) {
         console.error(error);
       });
-  }
+};
+
+function displayInfo (locRes) {
+
+    // write query to page so user knows what they are viewing
+    var results = locRes.data.results[0];
+    console.log(results);
+    // resultTextEl.textContent = locRes.search.query;
+    charaInfoEl.html('<img src=' + results.thumbnail.path + '.' + results.thumbnail.extension + '></img><h1>' + results.name + '</h1><p>' + results.description + '</p>');
+
+    // console.log(locRes);
+
+    // if (!locRes.results.length) {
+    //   console.log('No results found!');
+    //   resultContentEl.innerHTML = '<h3>No results found, search again!</h3>';
+    // } else {
+    //   resultContentEl.textContent = '';
+    //   for (var i = 0; i < locRes.results.length; i++) {
+    //     printResults(locRes.results[i]);
+    //   }
+    // }
+}
 
 // Put the information from the Marvel API onto screen
 
