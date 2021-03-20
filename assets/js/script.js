@@ -3,7 +3,7 @@ var characters = $('#characters');
 var charaInput = $('#chara');
 var submitBtn = $('#submitBtn');
 var charaInfoEl = $('#characterInfo');
-console.log(characters);
+var homeDescEl = $('.homeDesc');
 
 // Get value from drop-down list
 characters.submit(function (event){
@@ -36,28 +36,24 @@ function searchApi(charaChoice) {
 };
 
 function displayInfo (locRes) {
-
+    // Remove homepage description
+    homeDescEl.remove();
     // write query to page so user knows what they are viewing
     var results = locRes.data.results[0];
     console.log(results);
     // resultTextEl.textContent = locRes.search.query;
     charaInfoEl.html('<img src=' + results.thumbnail.path + '.' + results.thumbnail.extension + '></img><h1>' + results.name + '</h1><p>' + results.description + '</p>');
 
-    // console.log(locRes);
-
-    // if (!locRes.results.length) {
-    //   console.log('No results found!');
-    //   resultContentEl.innerHTML = '<h3>No results found, search again!</h3>';
-    // } else {
-    //   resultContentEl.textContent = '';
-    //   for (var i = 0; i < locRes.results.length; i++) {
-    //     printResults(locRes.results[i]);
-    //   }
-    // }
+    charaInfoEl.append($('<h3>Comics ' +  + ' has appeared in:</h3>'));
+    var comics = results.series.items
+    var comicsList = $('<ul></ul>');
+    for (var i = 0; i < 6; i++) {
+        var item = $('<li></li>');
+        item.text(comics[i].name);
+        comicsList.append(item);
+    }
+    charaInfoEl.append(comicsList);
 }
-
-// Put the information from the Marvel API onto screen
-
 
 // Pull movies that character is in
 
