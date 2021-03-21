@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marvel Avengers Directory</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -29,12 +30,27 @@
             <option value="black%20widow">Black Widow</option>
             <option value="gamora">Gamora</option>
         </select>
-        <button type="submit" id="submitBtn">Submit</button>
+        <button type="submit" id="submitBtn" name="action" class="btn waves-effect">Submit</button>
     </form>
 
     <div id="characterInfo"></div>
 
+     <!-- div for character thumbnail/movie poster -->
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div> <!-- .div for character thumbnail/movie poster -->
+
+    <!-- div for IMDB details/reviews -->
+    <div class="row">
+
+    </div>  <!-- .div for IMDB details/reviews -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Script to initialize Materialize.CSS JS functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>M.AutoInit();</script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
