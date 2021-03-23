@@ -36,6 +36,16 @@ h5 {
     color: red;
 }
 
+/* .large {
+    height: 700px;
+} */
+
 .card img {
     max-height: 452px;
     width: auto;
+    /* object-fit: cover; */
+}
+/* .card img.materialized.active {
+    max-height: none;
+    object-fit: none;
+} */
