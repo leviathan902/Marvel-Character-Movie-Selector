@@ -4,6 +4,9 @@ var charaInput = $('#chara');
 var submitBtn = $('#submitBtn');
 var charaInfoEl = $('#characterInfo');
 var homeDescEl = $('.homeDesc');
+var marvelImg = $('#marvelImg');
+var nameTitle = $('#nameTitle');
+var cardContent = $('#cardContent');
 
 // Get value from drop-down list
 characters.submit(function(event) {
@@ -11,7 +14,6 @@ characters.submit(function(event) {
 
     var charaChoice = charaInput.val();
 
-    console.log(charaInput.val());
     searchApi(charaChoice);
 });
 
@@ -35,16 +37,19 @@ function searchApi(charaChoice) {
         });
 };
 
+// Put information from API on screen
 function displayInfo(locRes) {
     // Remove homepage description
     homeDescEl.remove();
-    // write query to page so user knows what they are viewing
+
     var results = locRes.data.results[0];
     console.log(results);
-    // resultTextEl.textContent = locRes.search.query;
-    charaInfoEl.html('<img src=' + results.thumbnail.path + '.' + results.thumbnail.extension + '></img><h1>' + results.name + '</h1><p>' + results.description + '</p>');
+    marvelImg.html('<img src=' + results.thumbnail.path + '.' + results.thumbnail.extension + '></img>');
+    nameTitle.text(results.name);
+    cardContent.text(results.description);
 
-    charaInfoEl.append($('<h3>Comics ' + +' has appeared in:</h3>'));
+    var comicsIntro = $('<h2>Comics ' + results.name + ' has appeared in:</h2>').css('font-weight','bold');
+    cardContent.append(comicsIntro);
     var comics = results.series.items
     var comicsList = $('<ul></ul>');
     for (var i = 0; i < 6; i++) {
@@ -52,7 +57,7 @@ function displayInfo(locRes) {
         item.text(comics[i].name);
         comicsList.append(item);
     }
-    charaInfoEl.append(comicsList);
+    cardContent.append(comicsList);
 }
 
 // Pull movies that character is in
