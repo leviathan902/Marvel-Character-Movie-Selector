@@ -41,3 +41,7 @@ h1 {
     font-family: 'Bebas Neue', cursive;
     font-size: 40px;
 }
+
+.card-image {
+    min-height: 100%;
+}
