@@ -3,8 +3,13 @@ body {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
+    margin: 2rem 0 2rem 0;
+}
+
+header {
+    height: 150px;
 }
 
 .marvel {
@@ -30,3 +35,17 @@ h5 {
 .ratingNumbers {
     color: red;
 }
+
+/* .large {
+    height: 700px;
+} */
+
+.card img {
+    max-height: 452px;
+    width: auto;
+    /* object-fit: cover; */
+}
+/* .card img.materialized.active {
+    max-height: none;
+    object-fit: none;
+} */
