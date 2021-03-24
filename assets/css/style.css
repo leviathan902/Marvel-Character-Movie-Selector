@@ -1,31 +1,3 @@
-/* CSS Reset */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    min-height: 100%;
-    line-height: 1;
-    font-family: sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
-}
-
-input, select, option, optgroup, textarea, button,
-pre, code {
-    font-size: 100%;
-    font-family: inherit;
-}
-
-/* Main Code */
-
 body {
     padding: 15px;
 }
@@ -51,12 +23,29 @@ header {
     min-height: 100%;
 }
 
-.large {
-    height: 500px;
+h5 {
+    font-weight: bold;
 }
+
+.movieTitle {
+    font-style: italic;
+    font-size: 15px;
+}
+
+.ratingNumbers {
+    color: red;
+}
+
+/* .large {
+    height: 700px;
+} */
 
 .card img {
     max-height: 452px;
-    max-width: 452px;
-    justify-content: center;
+    width: auto;
+    /* object-fit: cover; */
 }
+/* .card img.materialized.active {
+    max-height: none;
+    object-fit: none;
+} */
