@@ -51,16 +51,12 @@ header {
     min-height: 100%;
 }
 
-/* .large {
-    height: 700px;
-} */
+.large {
+    height: 500px;
+}
 
 .card img {
     max-height: 452px;
-    width: auto;
-    /* object-fit: cover; */
+    max-width: 452px;
+    justify-content: center;
 }
-/* .card img.materialized.active {
-    max-height: none;
-    object-fit: none;
-} */
