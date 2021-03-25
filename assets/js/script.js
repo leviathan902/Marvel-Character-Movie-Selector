@@ -1,8 +1,6 @@
 // Declare variables to access from HTML
 var characters = $('#characters');
 var charaInput = $('#chara');
-var submitBtn = $('#submitBtn');
-var charaInfoEl = $('#characterInfo');
 var homeDescEl = $('.homeDesc');
 var marvelImg = $('#marvelImg');
 var nameTitle = $('#nameTitle');
@@ -15,6 +13,28 @@ characters.submit(function(event) {
     event.preventDefault();
 
     var charaChoice = charaInput.val();
+
+    if (charaChoice === 'wolverine') {
+        document.body.style.backgroundImage = "url(assets/images/Wolverine.jpg)"
+    }
+    else if (charaChoice === 'thanos') {
+        document.body.style.backgroundImage = "url(assets/images/Thanos.jpg)"
+    }
+    else if (charaChoice === 'iron%20man') {
+        document.body.style.backgroundImage = "url(assets/images/IronMan.jpg)"
+    }
+    else if (charaChoice === 'hulk') {
+        document.body.style.backgroundImage = "url(assets/images/hulk.jpg)"
+    }
+    else if (charaChoice === 'black%20widow') {
+        document.body.style.backgroundImage = "url(assets/images/Black-Widow-Avengers.jpg)"
+    }
+    else if (charaChoice === 'gamora') {
+        document.body.style.backgroundImage = "url(assets/images/Gamora-2.jpg)"
+    }
+    else {
+        
+    }
 
     searchMarvel(charaChoice);
     searchOMDB(charaChoice);
