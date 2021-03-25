@@ -1,14 +1,15 @@
 // Declare variables to access from HTML
 var characters = $('#characters');
 var charaInput = $('#chara');
-var submitBtn = $('#submitBtn');
-var charaInfoEl = $('#characterInfo');
 var homeDescEl = $('.homeDesc');
 var marvelImg = $('#marvelImg');
 var nameTitle = $('#nameTitle');
 var cardContent = $('#cardContent');
 var movieCard = $('#movieCardContent');
 var posterImg = $('#posterImg');
+var favBtnEl = $('#saveBtnEl');
+var favBtn = $('#favBtn');
+var savedCharas = [];
 
 // Get value from drop-down list
 characters.submit(function(event) {
@@ -16,9 +17,25 @@ characters.submit(function(event) {
 
     var charaChoice = charaInput.val();
 
+    if (favBtnEl.has('button')) {
+    favBtn.remove();
+    } else {
+
+    }
+    favBtnEl.append($('<button id="favBtn" class="btn waves-effect">Save Character</button>'));
+    favBtn = $('#favBtn');
+    favBtn.click(saveToLocal);
+
     searchMarvel(charaChoice);
     searchOMDB(charaChoice);
 });
+
+function saveToLocal(charaChoice) {
+    var charaChoice = charaInput.val();
+    console.log(charaChoice);
+    savedCharas.push(charaChoice);
+    localStorage.setItem('savedCharas',savedCharas);
+}
 
 // Use that value to search for the character in the Marvel API
 function searchMarvel(charaChoice) {
@@ -83,7 +100,7 @@ function searchOMDB(charaChoice) {
 
     }
 
-    var locQueryUrl = 'http://www.omdbapi.com/?t=' + movieName + '&apikey=693e75d2';
+    var locQueryUrl = 'https://www.omdbapi.com/?t=' + movieName + '&apikey=693e75d2';
 
     $.getJSON(locQueryUrl)
     .then(function(response) {
