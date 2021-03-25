@@ -36,12 +36,14 @@
         </select>
         <button type="submit" id="submitBtn" name="action" class="btn waves-effect">Submit<i class="material-icons right">send</i></button>
     </form>
-    <br>
+    <button class="saved btn waves-effect" id="viewSaved">View Saved Characters</button>
+
     <div id="saveBtnEl"></div>
     <br>
     <br>
 
-    <div id="characterInfo"></div>
+    <div id="cards">
+        <div id="characterInfo"></div>
 
      <!-- div for character thumbnail/movie poster -->
         <div class="row">
@@ -61,8 +63,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div> <!-- .div for character thumbnail/movie poster -->
+        </div> <!-- .div for character thumbnail/movie poster -->
 
     <!-- div for IMDB details/reviews -->
     <div class="row">
@@ -77,8 +78,8 @@
                     <p id="movieCardContent"></p>
                 </div>
             </div>
-        </div>
-    </div>  <!-- .div for IMDB details/reviews -->
+        </div>  <!-- .div for IMDB details/reviews -->
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Script to initialize Materialize.CSS JS functionality -->

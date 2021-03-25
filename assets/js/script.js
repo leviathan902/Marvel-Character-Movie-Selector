@@ -1,6 +1,7 @@
 // Declare variables to access from HTML
 var characters = $('#characters');
 var charaInput = $('#chara');
+var charaInfo = $('#characterInfo');
 var homeDescEl = $('.homeDesc');
 var marvelImg = $('#marvelImg');
 var nameTitle = $('#nameTitle');
@@ -9,7 +10,74 @@ var movieCard = $('#movieCardContent');
 var posterImg = $('#posterImg');
 var favBtnEl = $('#saveBtnEl');
 var favBtn = $('#favBtn');
+var savedList = $(".saved");
+var cardsEl = $('.row');
+var submitBtn = $('#submitBtn');
+var viewSavedBtn = $('#viewSaved');
 var savedCharas = [];
+
+savedList.click(savedListLoad);
+
+function savedListLoad () {
+
+    var savedCharas = localStorage.getItem("savedCharas");
+
+    if (savedCharas === null) {
+        savedCharas = [];
+    } else {
+        savedCharas = savedCharas.split(',');
+    }
+
+    viewSavedBtn.remove();
+    homeDescEl.remove();
+    characters.remove();
+    cardsEl.remove();
+
+    if (favBtn) {
+        favBtn.remove();
+    }
+    
+    var charaListEl = $('<div></div>');
+    charaListEl.append($('<h1>Saved Characters</h1>'));
+
+    var charaList = $('<ul></ul>').addClass('charaList');
+    charaListEl.append(charaList);
+
+    console.log(savedCharas);
+    console.log(savedCharas.length);
+
+    // Create a list item for each available score in local storage and append to the created HTML list
+    if(savedCharas === null) {
+         
+    } else {
+        for (var i = 0; i < savedCharas.length; i++) {
+            var listItem = $("<li></li>");
+            listItem.text(savedCharas[i]);
+            charaList.append(listItem);
+        }
+    }
+
+    charaInfo.append(charaListEl);
+
+    // Button to go back to home screen
+    var goBackBtn = $("<button>Go Back</button>").addClass("btn waves-effect");
+    favBtnEl.append(goBackBtn);
+
+    goBackBtn.click(function (){
+        location.reload();
+    });
+
+    // Button to clear all list
+    var clearBtn = $("<button>Clear Characters</button>").addClass("btn waves-effect");
+    favBtnEl.append(clearBtn);
+
+    clearBtn.click(function (event){
+        event.preventDefault;
+        localStorage.clear();
+        savedCharas = [];
+    });
+    
+}
 
 // Get value from drop-down list
 characters.submit(function(event) {
@@ -34,6 +102,8 @@ function saveToLocal(charaChoice) {
     var charaChoice = charaInput.val();
     console.log(charaChoice);
     savedCharas.push(charaChoice);
+
+    savedCharas = $.uniqueSort(savedCharas);
     localStorage.setItem('savedCharas',savedCharas);
 }
 
