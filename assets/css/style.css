@@ -51,3 +51,7 @@ h5 {
 .valign-wrapper {
     justify-content: center;
 }
+
+.text-card {
+    min-height: 625px;
+}
