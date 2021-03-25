@@ -36,43 +36,46 @@
         </select>
         <button type="submit" id="submitBtn" name="action" class="btn waves-effect">Submit<i class="material-icons right">send</i></button>
     </form>
+    <button class="saved btn waves-effect" id="viewSaved">View Saved Characters</button>
     <div id="saveBtnEl"></div>
 
-    <div id="characterInfo"></div>
+    <div id="cards">
+        <div id="characterInfo"></div>
 
-     <!-- div for character thumbnail/movie poster -->
+        <!-- div for character thumbnail/movie poster -->
+            <div class="row">
+                <!-- Character Thumbnail Image -->
+                <div class="col s4 offset-s2">
+                    <div class="card large card-panel">
+                        <div class="card-image" id="marvelImg">
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Movie Poster Image -->
+                <div class="col s4">
+                    <div class="card large card-panel">
+                        <div class="card-image" id="posterImg">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .div for character thumbnail/movie poster -->
+
+        <!-- div for IMDB details/reviews -->
         <div class="row">
-            <!-- Character Thumbnail Image -->
-            <div class="col s4 offset-s2">
-                <div class="card large card-panel">
-                    <div class="card-image" id="marvelImg">
-                        
+            <div class="col s8 offset-s2">
+                <div class="card large">
+                    <div class="card-content">
+                        <span class="card-title" id="nameTitle"></span>
+                        <p id="cardContent"></p>
+                        <p id="movieCardContent"></p>
                     </div>
                 </div>
             </div>
-            <!-- Movie Poster Image -->
-            <div class="col s4">
-                <div class="card large card-panel">
-                    <div class="card-image" id="posterImg">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- .div for character thumbnail/movie poster -->
-
-    <!-- div for IMDB details/reviews -->
-    <div class="row">
-        <div class="col s8 offset-s2">
-            <div class="card large">
-                <div class="card-content">
-                    <span class="card-title" id="nameTitle"></span>
-                    <p id="cardContent"></p>
-                    <p id="movieCardContent"></p>
-                </div>
-            </div>
-        </div>
-    </div>  <!-- .div for IMDB details/reviews -->
+        </div>  <!-- .div for IMDB details/reviews -->
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Script to initialize Materialize.CSS JS functionality -->
