@@ -66,7 +66,7 @@ function savedListLoad () {
         location.reload();
     });
 
-    // Button to clear list and local storage
+    // Button to clear all list
     var clearBtn = $("<button>Clear Characters</button>").addClass("btn waves-effect");
     favBtnEl.append(clearBtn);
 
@@ -79,17 +79,17 @@ function savedListLoad () {
     
 }
 
-// Get value from drop-down list when submitted
+// Get value from drop-down list
 characters.submit(function(event) {
     event.preventDefault();
 
     var charaChoice = charaInput.val();
 
-    // Avoid repeating buttons
     if (favBtnEl.has('button')) {
     favBtn.remove();
-    }
+    } else {
 
+    }
     favBtnEl.append($('<button id="favBtn" class="btn waves-effect">Save Character</button>'));
     favBtn = $('#favBtn');
     favBtn.click(saveToLocal);
@@ -98,23 +98,16 @@ characters.submit(function(event) {
     searchOMDB(charaChoice);
 });
 
-// Function to save saved characters to local storage
 function saveToLocal(charaChoice) {
     var charaChoice = charaInput.val();
-
-    // If character value includes a %20, replace with a space
-    if (~charaChoice.indexOf("%20")) {
-        charaChoice = charaChoice.replace('%20',' ')
-    }
-
+    console.log(charaChoice);
     savedCharas.push(charaChoice);
 
-    // Remove duplicates
     savedCharas = $.uniqueSort(savedCharas);
     localStorage.setItem('savedCharas',savedCharas);
 }
 
-// Use submitted value to search for the character in the Marvel API
+// Use that value to search for the character in the Marvel API
 function searchMarvel(charaChoice) {
     var locQueryUrl = 'https://gateway.marvel.com:443/v1/public/characters?name=';
 
@@ -134,7 +127,7 @@ function searchMarvel(charaChoice) {
         });
 };
 
-// Put information from Marvel API on screen
+// Put information from API on screen
 function displayInfo(locRes) {
     // Remove homepage description
     homeDescEl.remove();
@@ -156,7 +149,9 @@ function displayInfo(locRes) {
     cardContent.append(comicsList);
 }
 
-// Connecting to OMDb web site and pulling movie information - worked from Julio's Prototype
+// Connecting to OMDB web site and pulling movie information - worked from Julio's Prototype
+// Out of the Movie object we want to extract, Movie Poster, Plot, Rating
+
 function searchOMDB(charaChoice) {
 
     if (charaChoice === 'wolverine') {
@@ -184,8 +179,8 @@ function searchOMDB(charaChoice) {
     })
 }
 
-// Show information from OMDb API on screen
 function addContent(movieInfo) {
+    console.log(movieInfo);
     posterImg.html('<img src=' + movieInfo.Poster + '></img>')
     var movieIntro = $('<h5>Most well known for being in this movie:</h5>');
     movieCard.html(movieIntro);
