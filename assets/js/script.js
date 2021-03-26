@@ -16,6 +16,7 @@ var submitBtn = $('#submitBtn');
 var viewSavedBtn = $('#viewSaved');
 var savedCharas = [];
 
+// Click savedList button to view the list of Saved Characters
 savedList.click(savedListLoad);
 
 function savedListLoad () {
@@ -28,6 +29,7 @@ function savedListLoad () {
         savedCharas = savedCharas.split(',');
     }
 
+    // Remove on-screen info
     viewSavedBtn.remove();
     homeDescEl.remove();
     characters.remove();
