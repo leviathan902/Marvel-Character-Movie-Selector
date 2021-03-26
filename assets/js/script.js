@@ -43,9 +43,6 @@ function savedListLoad () {
     var charaList = $('<ul></ul>').addClass('charaList');
     charaListEl.append(charaList);
 
-    console.log(savedCharas);
-    console.log(savedCharas.length);
-
     // Create a list item for each available score in local storage and append to the created HTML list
     if(savedCharas === null) {
          
@@ -75,6 +72,7 @@ function savedListLoad () {
         event.preventDefault;
         localStorage.clear();
         savedCharas = [];
+        charaList.text("");
     });
     
 }
