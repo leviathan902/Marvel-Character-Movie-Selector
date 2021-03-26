@@ -79,17 +79,17 @@ function savedListLoad () {
     
 }
 
-// Get value from drop-down list
+// Get value from drop-down list on submit
 characters.submit(function(event) {
     event.preventDefault();
 
     var charaChoice = charaInput.val();
 
+    // Avoid duplicate buttons
     if (favBtnEl.has('button')) {
     favBtn.remove();
-    } else {
-
     }
+    
     favBtnEl.append($('<button id="favBtn" class="btn waves-effect">Save Character</button>'));
     favBtn = $('#favBtn');
     favBtn.click(saveToLocal);
@@ -98,9 +98,17 @@ characters.submit(function(event) {
     searchOMDB(charaChoice);
 });
 
+// Save saved characters to local storage
 function saveToLocal(charaChoice) {
     var charaChoice = charaInput.val();
+    
     console.log(charaChoice);
+    // Replace %20 in character value with a space
+    if (~charaChoice.indexOf("%20")) {
+        var charaChoice = charaChoice.replace("%20"," ");
+    }
+    console.log(charaChoice);
+
     savedCharas.push(charaChoice);
 
     savedCharas = $.uniqueSort(savedCharas);
@@ -127,7 +135,7 @@ function searchMarvel(charaChoice) {
         });
 };
 
-// Put information from API on screen
+// Put information from Marvel API on screen
 function displayInfo(locRes) {
     // Remove homepage description
     homeDescEl.remove();
@@ -150,8 +158,6 @@ function displayInfo(locRes) {
 }
 
 // Connecting to OMDB web site and pulling movie information - worked from Julio's Prototype
-// Out of the Movie object we want to extract, Movie Poster, Plot, Rating
-
 function searchOMDB(charaChoice) {
 
     if (charaChoice === 'wolverine') {
@@ -179,6 +185,7 @@ function searchOMDB(charaChoice) {
     })
 }
 
+// Show information from OMDb API on screen
 function addContent(movieInfo) {
     console.log(movieInfo);
     posterImg.html('<img src=' + movieInfo.Poster + '></img>')
