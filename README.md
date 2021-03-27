@@ -19,3 +19,8 @@ https://leviathan902.github.io/Marvel-Character-Movie-Selector/
 ## User Flow Diagram
 
 ![User Flow Diagram](assets/images/userFlowDiagram.png)
+
+## Screenshots ##
+![Screenshot 1](https://github.com/leviathan902/Marvel-Character-Movie-Selector/blob/main/assets/images/Screenshot_1.PNG?raw=true)
+![Screenshot 1](https://github.com/leviathan902/Marvel-Character-Movie-Selector/blob/main/assets/images/Screenshot_2.PNG?raw=true)
+![Screenshot 1](https://github.com/leviathan902/Marvel-Character-Movie-Selector/blob/main/assets/images/Screenshot_3.PNG?raw=true)
